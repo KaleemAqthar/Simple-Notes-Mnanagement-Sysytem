@@ -1,0 +1,60 @@
+{% extends 'dashboard.html' %}
+
+{% block title %}
+
+<title>View File</title>
+{% endblock %}
+
+{% block addcss %}
+
+<link rel="stylesheet" href="{{ url_for('static', filename='addnotes.css') }}">
+{% endblock %}
+
+{% block content %}
+
+{% with messages = get_flashed_messages() %}
+{% if messages %}
+{% for message in messages %} <center>{{ message }}</center>
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<div class="file-container">
+<center>
+<h2>View File</h2>
+</center>
+
+<div class="form-group">
+    <label>File ID</label>
+    <input
+        type="text"
+        value="{{ filesdata[0] }}"
+        readonly>
+</div>
+
+<div class="form-group">
+    <label>File Name</label>
+    <input
+        type="text"
+        value="{{ filesdata[1] }}"
+        readonly>
+</div>
+
+<div class="form-group">
+    <label>Uploaded Date</label>
+    <input
+        type="text"
+        value="{{ filesdata[3] }}"
+        readonly>
+</div>
+<div class="form-group">
+    <label>Description</label>
+    <textarea
+        class="form-control"
+        rows="20"
+        readonly>{{ filesdata[2] }}</textarea>
+</div>
+
+</div>
+
+{% endblock %}

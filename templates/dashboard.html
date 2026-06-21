@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   {%block title%}<title>Dashboard</title>{% endblock %}
+    <link rel="stylesheet" href="{{url_for('static',filename='dashboard.css')}}"/>
+    {% block addcss %}{% endblock %}
+</head>
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            Notes Dashboard
+        </div>
+
+        <ul class="nav-links">
+
+            <!-- Notes Dropdown -->
+            <li class="dropdown">
+                <a href="#">Notes ▼</a>
+
+                <div class="dropdown-content">
+                    <a href="{{url_for('addnotes')}}">Add Notes</a>
+                    <a href="{{url_for('viewallnotes')}}">View All Notes</a>
+                    <a href="{{url_for('exceldata')}}">Get Excel Data</a>
+                </div>
+            </li>
+
+            <!-- Files Dropdown -->
+            <li class="dropdown">
+                <a href="#">Files ▼</a>
+
+                <div class="dropdown-content">
+                    <a href="{{url_for('upload')}}">Upload File</a>
+                    <a href="{{url_for('viewallfiles')}}">View All Files</a>
+                </div>
+            </li>
+
+            
+
+            <!-- Logout -->
+            <li>
+                <a href="{{url_for('logout')}}">Logout</a>
+            </li>
+
+        </ul>
+        {{session.get('user')}}
+
+        <div class="search-box">
+            <form action="{{url_for('search')}}" method="GET">
+                <input
+                    type="text"
+                    name="query"
+                    placeholder="Search notes or files..."
+                >
+                <button type="submit" class="search-btn">
+                    Search
+                </button>
+            </form>
+        </div>
+
+    </nav>
+    {% block content %}
+    <div class="container">
+
+        <div class="welcome-card">
+            <h1>Welcome to Dashboard</h1>
+            <p>
+                Manage your Notes, Excel Data, and Files from one place.
+            </p>
+        </div>
+
+    </div>
+    {% endblock %}
+</body>
+</html>
