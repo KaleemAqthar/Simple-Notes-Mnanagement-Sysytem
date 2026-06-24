@@ -12,6 +12,8 @@ app=Flask(__name__)
 excel.init_excel(app)
 app.secret_key='aqthar12345'
 app.config['SESSION_TYPE']='filesystem'
+app.config['SERVER_NAME']='32.236.18.22'
+app.config['PREFERRED_URL_SCHEME']='https'
 Session(app)
 #home------------------------------------------------------------------------------------------------------------------------------>
 @app.route('/',methods=['GET'])
@@ -476,9 +478,9 @@ def forgotpassword():
 
             if email_count == 1:
                 subject = f'click the reset link for forgotpassword SNM App'
-                resetlink=f"http://32.236.18.22/newpassword/{endata(forgot_email),extrenal=True}"
+        
 
-                body = f"Click the reset link {resetlink}"
+                body = f"Click the reset link {url_for('newpassword',data=endata(forgot_email),extrenal=True)}"
 
                 send_mail(to=forgot_email,subject=subject,body=body)
 
