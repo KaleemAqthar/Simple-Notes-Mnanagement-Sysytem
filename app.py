@@ -480,7 +480,7 @@ def forgotpassword():
                 subject = f'click the reset link for forgotpassword SNM App'
         
 
-                body = f"Click the reset link {url_for('newpassword',data=endata(forgot_email),_extrenal=True)}"
+                body = f"Click the reset link {url_for('newpassword',data=endata(forgot_email),_external=True)}"
 
                 send_mail(to=forgot_email,subject=subject,body=body)
 
