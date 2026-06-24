@@ -13,7 +13,7 @@ excel.init_excel(app)
 app.secret_key='aqthar12345'
 app.config['SESSION_TYPE']='filesystem'
 app.config['SERVER_NAME']='32.236.18.22'
-app.config['PREFERRED_URL_SCHEME']='https'
+app.config['PREFERRED_URL_SCHEME']='http'
 Session(app)
 #home------------------------------------------------------------------------------------------------------------------------------>
 @app.route('/',methods=['GET'])
