@@ -476,8 +476,9 @@ def forgotpassword():
 
             if email_count == 1:
                 subject = f'click the reset link for forgotpassword SNM App'
+                resetlink=f"http://32.236.18.22/newpassword/{endata(forgot_email),extrenal=True}"
 
-                body = f"Click the reset link {url_for('newpassword', data=endata(forgot_email), _external=True)}"
+                body = f"Click the reset link {resetlink}"
 
                 send_mail(to=forgot_email,subject=subject,body=body)
 
